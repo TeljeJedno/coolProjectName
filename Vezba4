@@ -1,0 +1,90 @@
+---------V4------------
+IIR FIltri
+Fs = 25;
+t = 0:1/Fs:10;
+x = 3cos.....
+
+N = 4*2^nextpow....
+f1 = 0:Fs/N;Fs/2;
+....
+
+
+%digitalni elipticki filtar KONTINUALNI DIGITALNI SIGNAL
+Wp = [4 5]/ (Fs/2)
+Ws = [3.8 5.2]/(Fs/2)
+Rp = 1
+Rs = 40
+[n, Wn] = ellipord(Wp,Ws,Rp,Rs)
+[b, a] = ellip(n,Rp,Rs,Wp)
+[h,f] = freqz(b,a,N/2+1,Fs)
+plot(f, 20*log10(abs(h)))
+
+%fiiltriranje
+y = filter (b,a,x);
+Y = fft(y,N)/length(y);
+Y1 = abs(Y(1:N/2+1))
+Y1(2:N/2+1) = 2*Y1....
+
+plot(f1,X1)
+plot(f1,Y1)
+
+
+
+%z2 diskretan signal x[n] = sin(1.2n) + 2cos(3n)
+
+n = 0:100;
+X = sin(1.2n)....
+N = 4*2&nextpow(lngth(x))
+w1 = 0: 2*pi/N:pi;
+X = fft(x,N)/length(x)
+X1 = abs(X(1:N/2+1))
+X1(2...) = 2*....
+Xphase = unwrap ( angle (X(1:N/2+1)))
+
+
+stem umesto plot x
+
+
+#digitalni chebyshev filtar DELI SE SA PI ZBOG DISKRETNOG DIGITALNOG SIG
+Wp = [1 1.4]/pi;
+Ws = [0.9 1.5]/pi
+Rp = 1; Rs = 30;
+
+[n,Wn] = cheb1ord(Wp,Ws,Rp,RS);
+[b,a] = cheby1(n,Rp,Wp);
+[h,w] = freqz(b,a,N/2+1) //od 0 do pi ne treba Fs
+
+plot(w,20*log10(abs(h)))
+
+
+%filtriranje2
+y = filter(b,a,x)
+Y = fft...
+Y1 = abs(Y(1:N/2+1))
+Y1..... 2....
+
+
+
+%ANALOGNI SIGNAL
+
+rad /2
+
+Wp = [40 50]*2*pi
+Ws [ 35 55 ]*2*pi
+Rp 2 Rs =40
+n Wn = buttord(WP,ws,rp,rs,'s') ovo s znaci analog
+[b,a] = butter(n,Wn,'s')
+[h,w] = freqs(b,a,N/2+1)
+
+%Disktretizacija
+bz,az  = impinwvar(b,a,Fs)
+hz, fz = freqz(bz,az,N/2+1 , Fs)
+
+%Diskretizacija bilinearnom
+Fp = 45 OVDE STAVI FREQ OD NAJVECEG ZNACAJA?
+bz , az = bilinear(b,a,Fs,Fp);
+
+plot (w/2pi , 20log10(abs(h)),'k-' ...
+
+%Nule i polovi
+pzmap(b,a)

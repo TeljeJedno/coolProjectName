@@ -1,0 +1,35 @@
+FIRR
+
+n  = 37
+window = blacman(n+1)
+Wn = 30/(Fs/2)
+b = fir1(n,Wn,window)
+a = 1
+[hz, fz] = freq(b,a,N/2+1 , Fs)
+
+
+
+%Kreiranje FIR filtra
+
+n=40;
+window = hamming(n+1)
+Wn = [1.2 1.8]/pi
+b = fir1(n,Wn,window)
+a =1
+hz,w ] = freqz(b,a,N/2+1);
+
+stem(window)
+
+
+
+Za kaisera ide
+Wn = [1.2 1.8]/pi
+window = keiser(N)
+Xw = fft(window,N)/lngth(window)
+Xw1 = abs(Xw(1:N/2+1))
+Xw1 = 2....
+
+b = fir1(n,Wn,window)
+a=1
+isto
+idk

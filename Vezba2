@@ -1,0 +1,48 @@
+------Vezba 2------------
+
+biraj 3 - 5 puta Fs
+
+Fs = 1000hz
+T = 1/Fs %korak
+t = 0:T:0.1 %vreme
+x = sin(2pi*120t) +.....
+
+grid on ukljucuje grid u tabeli
+
+OVO SE SLIKA SVE OD -Fs/2 i Fs/2 ali to ne alja
+scatter(?)
+
+
+%%Ucitavnaje audio signala
+[x,Fs] = audioread('tone.wav');
+
+t = 0:1/Fs: (length(x)-1)/Fs ;
+
+%Plotovanje prvih 200 obiraka
+plot(t(1:200),x(1:200)); %moze i xlim([0;0.05]) ali sporije
+
+%cuti zvuk je sa sound(x,Fs)
+
+
+
+%%Cirkularna konvolucija
+Z[k] = suma x[m]y[(k-m)_N]
+
+cconv je ugradjena
+
+n = 0:9;
+x = n/2;
+y = 2*sin(1.5*n*pi/3)
+N = length(x)
+
+1. nacin dve for petlje duh
+2. nacin
+Z = zeros(1,N)
+for k=0:N-1
+    z(k+1) = sum(x.*y(mod(k:-1: k-N+1 ,N)+1))
+retardirano hahahahahah moze sigurno lepse
+
+%CItanje fijala
+data = load('signal.mat')
+x = data.x;
+Fs = data.Fs;

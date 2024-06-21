@@ -1,0 +1,46 @@
+------------Vezba 3--------------
+%%Brza Furijeova trans.
+fft()
+
+%%fazna i amplitudska karak. sig.
+N = 1024 % N = 2^nextpow2(length(x))
+
+X = fft(x,N)/length(x);
+
+%Dvostrani spektar
+f2 = -fs/2: fs/N : fs/2  - fs/N;
+X2 = abs(fftshift(X)) - magnituda ili ampl. karak,
+
+
+
+
+%jednostrani
+f1 = 0: fs/N ; fs/2;   //VEliko Fs umesto fs
+X1 = abs(X(1:N/2+1));
+X1(2:N/2+1) = 2 *  X1(2:N/2+1);
+plot(f,X1);
+
+Xphase = unwrap(angle(X(1:N/2+1)));
+plot(f,Xphase)
+
+
+Za diskretno ide N = 4*2^nextpow2(length(x))
+%diskretno
+
+n = 1:100
+x = sin(n) + 3*cos(3*n)
+N = 4*2^nextpow2(length(x))
+X = fft(x,N)/length(x)
+
+Xa = abs(X(1:N/2+1))
+f = 0 : 1/N: 1/2; (uzima se ko da je fs = 1 kod ovakvih)
+w = 0 : 2*pi/N :pi !!!!!!!OVA SE KORISTI
+Xa(2:N/2+1) = 2 * Xa....
+
+plot(w,Xa)
+
+
+
+
+%AUDIO
+[x,Fs] = audioread('ASDASD.wav')

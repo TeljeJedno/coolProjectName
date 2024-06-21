@@ -1,0 +1,78 @@
+-----------VZB 1------------
+clear all; close all; clc;
+whos
+display
+
+format short/rat; menja format u decimalu ili razlomak
+
+%niz A = [1,2,3,4,5] ili 1:1:5 ili linspace(1,5,5)
+%matrica B = [1,2,3; 4,5,6]  2x3
+
+reshape(Mat, 1 , 6) - menja matricu u oblik 1x6 (cita po kolonama)
+%npr 1 2 3
+     4 5 6 menja u 1 4 2 5 3 6
+
+
+%specijalne matrice: zeros, one, eye
+
+%Matrice mnozenje maticno: A*B, svaki sa svakim: A.*B
+
+
+
+%%Funkcije nad matricama i vektorima
+transpose(B) ili B'
+length(A) = vektor
+size(B) - matrica
+numel, ndims - br.elem i dim matrice
+
+%max matrice vrste je max(B, [] , 2)
+%max globalni je max(max(B))
+
+U MATRICI SVE RADI PO KOLONAMA PO DEFAULT-u
+
+%sort(A,'descend') - sortira niz opadajuce
+
+rand(2,3) nasumicna matrica 2x3
+
+
+
+%%Relacioni i logicki operatori
+Anew = A(A<3) iz niza A samo izdvoji el. manje od 3 i napravi u novi niz Anew
+
+Matrica B^-1 je isto sto i B\
+
+
+%%Grafici signala
+
+t = 0:0.01:2*pi;
+x = exp(-t).*sin(t);
+y = cos(t)
+figure(1);
+plot(t,x); %plot(t,x,'g*' , 'LineWidth',2) - g = green, * = tackasto!!!!
+hold on; % hold all
+plot(t,y);
+hold off;
+title("Iscrtanvanje signala")
+xlabel('t')
+ylabel('x,y')
+legend('x','y');
+
+mean(x) - srednja vrednost signala
+var(x) - varijansa signala
+
+%Diskretni signali
+n = 0:10;
+z = cos(n);
+q = exp(-n);
+figure (2);
+subplot(2,1,1); % SUBPLOTIRANJE !!!!!!!!!!
+stem(n,1) %PLOTOVANJE DISKRETNIH SIGNALA PAZI
+.....
+
+%funkcije
+function even = isEven(number)
+ //kod ovde
+if end...
+
+
+
